@@ -9,7 +9,7 @@ customtkinter.set_appearance_mode("dark")
 
 #VALORES
 user_windows = os.environ['USERNAME']
-L_Version = "3.0 Stable"
+L_Version = "3.1 Stable"
 
 #PERSONALIZAR
 minecraft_directory = f"C://Users//{user_windows}//AppData//Roaming//.minecraft"
@@ -19,24 +19,19 @@ versiones = minecraft_launcher_lib.utils.get_installed_versions(minecraft_direct
 todas_las_versiones = [version.get('id', 'N/A') for version in versiones]
 
 #AVISO
-print(f"Consola de desarrollador, favor de no cerrar esta pestaña.")
-print("Codigo por Jakedev098, Keimasempai & Paulscode.")
+print(f"Consola de desarrollador, favor de no cerrar esta pestaña.\nCodigo por Jakedev098, brokgator/sharky, Keimasempai & Jakobdev.")
 
 #INTERFAZ
 class RoundedComboboxFrame(customtkinter.CTkFrame): #VAR VERSIONS
     def __init__(self, master=None, width=100, height=10, **kwargs):
         super().__init__(master, width=width, height=height, **kwargs)
 
-class App(customtkinter.CTk): #APP
+#APP
+class App(customtkinter.CTk):
 
     #RESOLUCION
     width = 900
     height = 600
-
-    #IRSE A CONFIGURACION
-    def conf_frame_event(self):
-        self.MAIN_frame.grid_forget()
-        self.conf_frame.grid(row=0, column=0, sticky="ns")
 
     #SUGERENCIAS VERSIONES
     def actualizar_sugerencias(self):
@@ -47,34 +42,84 @@ class App(customtkinter.CTk): #APP
 
     #IRSE AL MENU (FRAME)
     def men_event(self):
-        self.conf_frame.grid_forget()
         self.ins_frame.grid_forget()
         self.MAIN_frame.grid(row=0, column=0, sticky="ns")
+    
+    #IRSE AL MENU (FRAME)
+    def inst_event(self):
+        self.ins_frame.grid(row=0, column=0, sticky="ns")
+        self.MAIN_frame.grid_forget()
     
     #MENSAJE DE INFO
     def inf_ung(self, mensaje=None):
         messagebox.showinfo("Informe!", mensaje)
 
-    #IRSE A INSTALACION (FRAME)
-    def install_minecraft(self):
-        version_inst = self.combobox_version.get()
+    #INSTALAR MINECRAFT FABRIC
+    def install_minecraft_fabric(self):
+        version_inst = self.version_entry.get()
+        if not version_inst:
+            self.inf_ung("Por favor, ingresa una versión de Minecraft.")
+            self.inst_event()
+        else:
+            try:
+                if version_inst in todas_las_versiones:
+                    self.inf_ung(f"La versión {version_inst} de Fabric ya está instalada.")
+                    self.men_event()
+                else:
+                    fabric_supor_ver = minecraft_launcher_lib.fabric.is_minecraft_version_supported(version_inst)
+                    if not fabric_supor_ver:
+                        self.inf_ung("La versión no es compatible con Fabric.")
+                    else:
+                        self.inf_ung(f"Se está instalando Fabric, por favor espere, es normal que tarde.")
+                        minecraft_launcher_lib.fabric.install_fabric(version_inst, minecraft_directory)
+                        self.inf_ung("¡Se ha instalado Fabric correctamente!")
+                        self.men_event()
+            except Exception as e:
+                self.inf_ung(f'¡Ha ocurrido un error! {e}')
+                self.men_event()
+
+    #INSTALAR MINECRAFT FORGE
+    def install_minecraft_forge(self):
+        version_inst = self.version_entry.get()
+        if not version_inst:
+            self.inf_ung("Por favor, ingresa una versión de Minecraft.")
+            self.inst_event()
+        else:
+            try:
+                if version_inst in todas_las_versiones:
+                    self.inf_ung(f"La versión {version_inst} de Forge ya está instalada.")
+                    self.men_event()
+                else:
+                    forge_version = minecraft_launcher_lib.forge.find_forge_version(version_inst)
+                    if forge_version is None:
+                        self.inf_ung(f"No se encontró una versión de Forge para la versión {version_inst} de Minecraft.")
+                        self.inst_event()
+                    else:
+                        self.inf_ung(f"Se está instalando Forge, por favor espere, es normal que tarde.")
+                        minecraft_launcher_lib.forge.install_forge_version(forge_version, minecraft_directory)
+                        self.inf_ung("¡Se ha instalado Forge correctamente!")
+                        self.men_event()
+            except Exception as e:
+                self.inf_ung(f'¡Ha ocurrido un error! {e}')
+                self.men_event()
+
+    #INSTALAR MINECRAFT VANILLA
+    def install_minecraft_vanilla(self):
+        version_inst = self.version_entry.get()
         if not version_inst:
             self.inf_ung("Por favor, ingresa una versión de Minecraft.")
             self.men_event()
         elif version_inst in todas_las_versiones:
             self.inf_ung(f"La versión {version_inst} ya está instalada.")
             self.men_event()
-        elif version_inst == "¿Cual version seria?":
-            self.inf_ung(f"Inserta una version Por favor.")
-            self.men_event()
         else:
             try:
-                self.inf_ung(f"Se está instalando la versión {version_inst}!")
+                self.inf_ung(f"¡Se está instalando la versión {version_inst}!")
                 minecraft_launcher_lib.install.install_minecraft_version(version_inst, minecraft_directory)
                 self.inf_ung(f"¡Se instaló correctamente la {version_inst}!")
                 self.men_event()
             except Exception as e:
-                self.inf_ung(f"¡Ha ocurrido un error!, asegurate de haber puesto bien la version!: {e}")
+                self.inf_ung(f"¡Ha ocurrido un error! {e}")
                 return
 
     #INICIADOR
@@ -99,19 +144,22 @@ class App(customtkinter.CTk): #APP
                     'username': mine_user,
                     'uuid': '',
                     'token': '',
+                    "launcherName": 'Jakecherrys Launcher',
+                    "launcherVersion": "3.1",
+                    "gameDirectory": minecraft_directory,
                     'jvmArguments': ["-Xmx2G", "-Xms2G"]
                 }
                 try:
                     if 'forge' in mine_version.lower() or 'fabric' in mine_version.lower():
-                        self.inf_ung(f"Se esta iniciando minecraft {mine_version}!, porfavor, no cierre el launcher.")
+                        self.inf_ung(f"¡Se esta iniciando minecraft {mine_version}!, porfavor, no cierre el launcher.")
                     else:
-                        self.inf_ung(f"Se esta iniciando minecraft {mine_version}!, porfavor, no cierre el launcher.")
+                        self.inf_ung(f"¡Se esta iniciando minecraft {mine_version}!, porfavor, no cierre el launcher.")
                         minecraft_launcher_lib.install.install_minecraft_version(mine_version, minecraft_directory)
                     minecraft_command = minecraft_launcher_lib.command.get_minecraft_command(mine_version, minecraft_directory, options)
                     self.destroy()
                     subprocess.run(minecraft_command)
                 except Exception as e:
-                    self.inf_ung(f"¡Ha ocurrido un error!, asegurate de haber puesto bien la version: {e}")
+                    self.inf_ung(f"¡Ha ocurrido un error! {e}")
                     self.men_event()
             except Exception as e:
                 self.inf_ung(f"¡Ha ocurrido un error! {e}")
@@ -150,10 +198,10 @@ class App(customtkinter.CTk): #APP
         self.combobox_version.grid(row=2, column=0, padx=30, pady=(15, 15))
         self.launch_button = customtkinter.CTkButton(self.MAIN_frame, text="Ejecutar", command=self.launch_event, width=200, height=32)
         self.launch_button.grid(row=3, column=0, padx=30, pady=(15, 15))
-        self.install_button = customtkinter.CTkButton(self.MAIN_frame, text="Instalar", command=self.install_minecraft, width=200, height=32)
+        self.install_button = customtkinter.CTkButton(self.MAIN_frame, text="Instalar", command=self.inst_event, width=200, height=32)
         self.install_button.grid(row=4, column=0, padx=30, pady=(15, 15))
-        labelimain = customtkinter.CTkLabel(self.MAIN_frame, text=f"Jakecherry's Launcher")
-        labelimain.grid(row=11, column=0)
+        labelimain = customtkinter.CTkLabel(self.MAIN_frame, text=f"Jakecherry's MC Launcher")
+        labelimain.grid(row=9, column=0)
 
         #ICON
         image_path = os.path.join(current_path, "images", "icon.ico")
@@ -166,9 +214,17 @@ class App(customtkinter.CTk): #APP
         self.ins_frame.grid_columnconfigure(0, weight=1)
         self.ins__label = customtkinter.CTkLabel(self.ins_frame, text="Jakecherry's\nInstalacion de minecraft", font=customtkinter.CTkFont(size=20, weight="bold"))
         self.ins__label.grid(row=0, column=0, padx=30, pady=(30, 15))
-        labelinst = customtkinter.CTkLabel(self.ins_frame, text="¡Se esta instalando la version de Minecraft que pediste!, Por favor espera.")
-        labelinst.grid(row=4, column=0)
-        self.back_button_ins = customtkinter.CTkButton(self.ins_frame, text="Back", command=self.men_event, width=200)
+        labelinst = customtkinter.CTkLabel(self.ins_frame, text="¿Que tipo de Minecraft y cual version?")
+        labelinst.grid(row=2, column=0)
+        self.version_entry = customtkinter.CTkEntry(self.ins_frame, width=200, placeholder_text="Escriba aqui su version")
+        self.version_entry.grid(row=3, column=0, padx=30, pady=(15, 15))
+        self.installv_one_button = customtkinter.CTkButton(self.ins_frame, text="Vanilla", command=self.install_minecraft_vanilla, width=200, height=32)
+        self.installv_one_button.grid(row=4, column=0, padx=30, pady=(15, 15))
+        self.installv_two_button = customtkinter.CTkButton(self.ins_frame, text="Forge", command=self.install_minecraft_forge, width=200, height=32)
+        self.installv_two_button.grid(row=5, column=0, padx=30, pady=(15, 15))
+        self.installv_three_button = customtkinter.CTkButton(self.ins_frame, text="Fabric", command=self.install_minecraft_fabric, width=200, height=32)
+        self.installv_three_button.grid(row=6, column=0, padx=30, pady=(15, 15))
+        self.back_button_ins = customtkinter.CTkButton(self.ins_frame, text="Atras", command=self.men_event, width=200)
         self.back_button_ins.grid(row=9, column=0, padx=30, pady=(15, 15))
 
 #RUN DOS RUN!
