@@ -12,10 +12,10 @@
 <div id="authors">
     <h2 style="text-align: center;">Autores:</h2>
     <ul style="text-align: center;">
-        <li>JakeDev098</li>
-        <li>brokgator/CrocDev</li>
-        <li>KeimaSempai</li>
-        <li>JakobDev</li>
+        <li>JakeDev098</li><p>    https://github.com/JakeDev098</p>
+        <li>brokgator/CrocDev</li><p>    https://github.com/CrocDev</p>
+        <li>KeimaSempai</li><p>    https://github.com/KeimaSenpai</p>
+        <li>JakobDev</li><p>    https://pypi.org/user/JakobDev/</p>
     </ul>
 </div>
 
