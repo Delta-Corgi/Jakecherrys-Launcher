@@ -15,10 +15,10 @@
 <div id="authors">
     <h2>Autores:</h2>
     <ul>
-        <li>JakeDev098</li><p>    https://github.com/JakeDev098</p>
-        <li>brokgator/CrocDev</li><p>    https://github.com/CrocDev</p>
-        <li>KeimaSempai</li><p>    https://github.com/KeimaSenpai</p>
-        <li>JakobDev</li><p>    https://pypi.org/user/JakobDev/</p>
+        <li>JakeDev098 (Codigo)</li><p>    https://github.com/JakeDev098</p>
+        <li>brokgator/CrocDev (Socio)</li><p>    https://github.com/CrocDev</p>
+        <li>KeimaSempai (Socio)</li><p>    https://github.com/KeimaSenpai</p>
+        <li>JakobDev (Autor de la raiz)</li><p>    https://pypi.org/user/JakobDev/</p>
     </ul>
 </div>
 
