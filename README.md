@@ -1,4 +1,4 @@
-﻿S¡Este es un launcher de Minecraft latino OpenSource!
+﻿¡Este es un launcher de Minecraft latino OpenSource!
 
 REQUISITOS: customtkinter, minecraft_launcher_lib, tkinter, PIL (pillow)
 Comandos (python): 
@@ -11,7 +11,7 @@ Asegurate de activar Path al instalar python
 solo se ha probado en Windows, si no utilizas este sistema operativo procede con preucacion.
 
 Creditos:
- Programador principal Jakedev098: https://github.com/JakeDev098
- Semi-Encargado brokgator/sharky: https://github.com/The0fficialSharky
- Socio KeimaSempai: https://github.com/KeimaSenpai
+ Programador principal Jakedev098: https://github.com/JakeDev098	|
+ Semi-Encargado brokgator/sharky: https://github.com/The0fficialSharky		|
+ Socio KeimaSempai: https://github.com/KeimaSenpai	|
  Programador secundario (lib) Jakobdev: https://pypi.org/user/JakobDev/	https://ko-fi.com/jakobdev
