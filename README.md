@@ -12,6 +12,6 @@ solo se ha probado en Windows, si no utilizas este sistema operativo procede con
 
 Creditos:
  Programador principal Jakedev098: https://github.com/JakeDev098 |
- Semi-Encargado brokgator/sharky: https://github.com/The0fficialSharky |
+ Semi-Encargado brokgator/sharky: https://github.com/CrocDev |
  Socio KeimaSempai: https://github.com/KeimaSenpai |
  Programador secundario (lib) Jakobdev: https://pypi.org/user/JakobDev/	https://ko-fi.com/jakobdev
