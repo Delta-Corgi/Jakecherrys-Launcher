@@ -22,5 +22,12 @@
     </ul>
 </div>
 
+<div id="page">
+    <h2>Pagina web Oficial:</h2>
+    <ul>
+        <li>https://jakedev098.github.io/Jakecherrys-Web/Pages/index.html</li>
+    </ul>
+</div>
+
 </body>
 </html>
