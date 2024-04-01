@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jakecherrys Minecraft Launcher</title>
 </head>
 <body>
-<style>
-.center {
-    text-align: center;
-    }
-</style>
-<div id="header" class="center">
+    <style>
+        .center {
+            text-align: center;
+        }
+    </style>
+    <div id="header" class="center">
         <img src="https://raw.githubusercontent.com/JakeDev098/Jakecherrys-Launcher/main/icon.ico">
-</div>
+    </div>
 
 <div id="authors">
     <h2>Autores:</h2>
