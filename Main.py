@@ -152,7 +152,7 @@ class App(customtkinter.CTk): #APP
         self.launch_button.grid(row=3, column=0, padx=30, pady=(15, 15))
         self.install_button = customtkinter.CTkButton(self.MAIN_frame, text="Instalar", command=self.install_minecraft, width=200, height=32)
         self.install_button.grid(row=4, column=0, padx=30, pady=(15, 15))
-        labelimain = customtkinter.CTkLabel(self.MAIN_frame, text=f"Jakecherry's Launcher\nHecho por JakeDev098/G047 & Jacobdev")
+        labelimain = customtkinter.CTkLabel(self.MAIN_frame, text=f"Jakecherry's Launcher")
         labelimain.grid(row=11, column=0)
 
         #ICON
