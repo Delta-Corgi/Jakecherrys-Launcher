@@ -10,7 +10,7 @@
             text-align: center;
         }
     </style>
-    <div id="header" class="center">
+    <div style="text-align: center;">
         <img src="https://raw.githubusercontent.com/JakeDev098/Jakecherrys-Launcher/main/icon.ico">
     </div>
 
