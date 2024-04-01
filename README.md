@@ -27,7 +27,7 @@
 <body>
 
 <div id="header">
-    <img src="ruta/de/la/imagen.jpg" alt="Descripción de la imagen">
+    <img src="https://raw.githubusercontent.com/JakeDev098/Jakecherrys-Launcher/main/icon.ico">
 </div>
 
 <div id="authors">
