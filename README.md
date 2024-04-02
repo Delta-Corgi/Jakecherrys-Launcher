@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-﻿﻿¡Este es un launcher de Minecraft latino OpenSource!
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,14 +29,5 @@
         <li>https://jakedev098.github.io/Jakecherrys-Web/Pages/index.html</li>
     </ul>
 </div>
-
-<<<<<<< HEAD
-Creditos:
- Programador principal Jakedev098: https://github.com/JakeDev098 |
- Semi-Encargado brokgator/CrocDev: https://github.com/CrocDev |
- Socio KeimaSempai: https://github.com/KeimaSenpai |
- Programador secundario (lib) Jakobdev: https://pypi.org/user/JakobDev/	https://ko-fi.com/jakobdev
-=======
 </body>
 </html>
->>>>>>> 54c708de887ac5c98a7ff26dd67848655ea1bf87
