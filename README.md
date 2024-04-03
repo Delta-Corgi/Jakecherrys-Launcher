@@ -9,10 +9,8 @@
     <h2>¿Que es?</h2>
     <p>El Launcher Jakecherrys es un launcher de minecraft java OpenSource, es decir de codigo abierto.</p>
     <p>Decidimos crearlo ya que casi ningun launcher de minecraft java no premium es de codigo abierto y esto puede ser un riesgo en la seguridad de los usuarios</p>
-    <p>este launcher esta hecho en python, por lo cual es facil de leer y por lo tanto </p>
+    <p>este launcher esta hecho en python, por lo cual es facil de leer y por lo tanto muy seguro.</p>
 </div>
->>>>>>> 54c708de887ac5c98a7ff26dd67848655ea1bf87
-
 <div id="authors">
     <h2>Autores:</h2>
     <ul>
