@@ -9,8 +9,7 @@ customtkinter.set_appearance_mode("dark")
 
 #VALORES
 user_windows = os.environ['USERNAME']
-L_Version = "3.3 Pre-release"
-Novedades_version = "Se ha incorporado la sección de novedades,\n la cual estará destinada a la inclusión\n de las actualizaciones correspondientes\n a la versión actual."
+L_Version = "3.3 Release"
 
 #PERSONALIZAR
 minecraft_directory = f"C://Users//{user_windows}//AppData//Roaming//.minecraft"
@@ -192,7 +191,7 @@ class App(customtkinter.CTk):
         self.high_frame.grid(row=0, column=0, sticky="e")
         self.high__label = customtkinter.CTkLabel(self.high_frame, text="-------------------------------- Novedades --------------------------------", font=customtkinter.CTkFont(size=20, weight="bold"))
         self.high__label.grid(row=0, column=0, padx=30, pady=(30, 15))
-        self.labelihigh = customtkinter.CTkLabel(self.high_frame, text=f"Estas son las novedades de la version {L_Version}:\nSe a a;adido la seccion de novedades! Aqui podras ver las actualizaciones del launcher\n\nSe ha actualizado la interfaz a una mas bonita y facil de usar\n\nTenemos una pagina web!\n https://bit.ly/jakecherrys \n\nLauncher desarrollado por:\nJakeDev098, brokgator/CrocDev, KeimaSempai & Jakobdev\n\nGracias por utilizar nuestro launcher\n\n\n\n\n\n")
+        self.labelihigh = customtkinter.CTkLabel(self.high_frame, text=f"Estas son las novedades de la version {L_Version}:\nSe a añadido la seccion de novedades! Aqui podras ver las actualizaciones del launcher\n\nSe ha actualizado la interfaz a una mas bonita y facil de usar\n\nTenemos una pagina web!\n https://bit.ly/jakecherrys \n\nLauncher desarrollado por:\nJakeDev098, brokgator/CrocDev, KeimaSempai & Jakobdev\n\nGracias por utilizar nuestro launcher\n\n\n\n\n\n")
         self.labelihigh.grid(row=2, column=0)
 
         #LAUNCHER GUI
